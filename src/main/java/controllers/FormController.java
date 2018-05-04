@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 import org.apache.commons.beanutils.BeanUtils;
 
 import models.BeanUser;
+import services.UserService;
 
 /**
  * Servlet implementation class FormController
@@ -40,6 +41,7 @@ public class FormController extends HttpServlet {
 		   
 		   if (user.isComplete()) {
 			   System.out.println("TODO: INSERT into DB");
+			   UserService.insertUser(user.getUser());
 		   } 
 		   else {
 			   // Put the bean into the request as an attribute

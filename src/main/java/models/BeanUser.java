@@ -10,8 +10,8 @@ public class BeanUser implements Serializable  {
 	private String mail = "";
 	
 	/*  Control which parameters have been correctly filled */
-	private int[] error = {0,0}; 
-	
+	private int[] error = {0,0};
+
 	/* Getters */
 	public String getUser(){
 		return user;
@@ -30,8 +30,7 @@ public class BeanUser implements Serializable  {
 		
 		System.out.println("Filling user field");
 		/* We simulate a user with the same unsername exists in our DB */
-		error[0] = 1;
-		
+		this.user = user;
 	}
 	
 	public void setMail(String mail){
