@@ -19,18 +19,11 @@ import services.UserService;
 @WebServlet("/FormController")
 public class FormController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public FormController() {
-        super();
-    }
 
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) {
 		
 		BeanUser user = new BeanUser();
 		
@@ -50,11 +43,11 @@ public class FormController extends HttpServlet {
 			   dispatcher.forward(request, response);
 		   }
 	    } 
-		catch (IllegalAccessException | InvocationTargetException e) {
-				e.printStackTrace();
+		catch (Exception exception) {
+			exception.printStackTrace();
+			response.setStatus(HttpServletResponse.SC_BAD_REQUEST);
 	    }
-		    
-    }
+	}
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)

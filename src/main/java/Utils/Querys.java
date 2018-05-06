@@ -9,6 +9,14 @@ public class Querys {
     }
 
     public static String insertUserQuery(String username){
-        return "INSERT INTO User VALUES ('" + username + "');";
+        return "INSERT INTO User VALUES (null, '" + username + "', null, null);";
+    }
+
+    public static String insertUserQuery(String username, String description){
+        return "INSERT INTO User VALUES (null, '" + username + "', '"+ description +"');";
+    }
+
+    public static String insertUserQuery(String username, String description, String phoneNumber){
+        return "INSERT INTO User VALUES (null, '" + username + "', '"+ description +"', '" + phoneNumber + "');";
     }
 }

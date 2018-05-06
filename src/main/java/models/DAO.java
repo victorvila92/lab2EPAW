@@ -24,8 +24,8 @@ public class DAO {
         return statement.executeQuery(query);
     }
 
-    public Boolean execute(String query) throws Exception{
-        return statement.execute(query);
+    public void execute(String query) throws Exception{
+        statement.executeUpdate(query);
     }
 
     public void disconnectDb() throws Exception{
