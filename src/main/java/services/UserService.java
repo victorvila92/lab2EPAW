@@ -7,6 +7,11 @@ import java.sql.ResultSet;
 
 public class UserService {
 
+    public static ResultSet getUsers() throws Exception {
+        DAO dao = new DAO();
+        return dao.executeSQL(Querys.getUsersQuery());
+    }
+
     public static ResultSet getUser(String name) throws Exception {
         DAO dao = new DAO();
         return dao.executeSQL(Querys.getUserQuery(name));

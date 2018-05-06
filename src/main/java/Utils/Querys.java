@@ -4,6 +4,10 @@ public class Querys {
 
     public Querys(){}
 
+    public static String getUsersQuery(){
+        return "SELECT id, name, description, phoneNumber FROM User;";
+    }
+
     public static String getUserQuery(String username){
         return "SELECT id, description, phoneNumber FROM User WHERE name = '" + username + "';";
     }

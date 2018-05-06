@@ -1,7 +1,6 @@
 package controllers;
 
 import java.io.IOException;
-import java.lang.reflect.InvocationTargetException;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -12,6 +11,8 @@ import org.apache.commons.beanutils.BeanUtils;
 
 import models.BeanUser;
 import services.UserService;
+
+import static Utils.HtmlUtils.buildResponseForm;
 
 /**
  * Servlet implementation class FormController
@@ -33,8 +34,9 @@ public class FormController extends HttpServlet {
 		   BeanUtils.populate(user, request.getParameterMap());
 		   
 		   if (user.isComplete()) {
-			   System.out.println("TODO: INSERT into DB");
+			   System.out.println("INSERTING USER into DB");
 			   UserService.insertUser(user.getUser());
+			   response.getWriter().append(buildResponseForm(UserService.getUsers()));
 		   } 
 		   else {
 			   // Put the bean into the request as an attribute

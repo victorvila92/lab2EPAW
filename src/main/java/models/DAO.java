@@ -14,8 +14,8 @@ public class DAO {
 
         Class.forName("com.mysql.jdbc.Driver").newInstance();
         connection = DriverManager.getConnection(
-                "jdbc:mysql://localhost/ts1?user=" + user +
-                        "&password="+ password);
+                "jdbc:mysql://localhost/ts1?" +
+                        "user=" + user + "&password="+ password);
 
         statement = connection.createStatement();
     }
